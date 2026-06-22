@@ -1,10 +1,12 @@
+from animations.loader import loader
 from agents.reviewer import run_full_review
 content = ''
+
+loader("Intialization...")
 
 try:
     with open("./Test_code_file/Main.java", "r") as file:
         content = file.read()
-        print(content)
 except FileNotFoundError:
     print("File not found")
      

@@ -80,7 +80,7 @@ def route(task_type: TaskType, streaming: bool = True):
     if llm_factory is None:
         raise ValueError(f"Unknown task type: {task_type}")
     
-    print("Routing the llm...")
+  
 
     return llm_factory(streaming=streaming)
 

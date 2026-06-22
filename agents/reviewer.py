@@ -1,7 +1,7 @@
 # agents/reviewer.py
 
 from agents.router import smart_route, route, TaskType
-
+from animations.loader import loader
 def run_full_review(code: str, language: str):
     """
     Runs all 3 specialized chains using the right model for each.
@@ -10,11 +10,14 @@ def run_full_review(code: str, language: str):
     results = {}
 
     # Bug scan — fast Groq
+    
     print("Bugg Scan by Groq...")
     bug_llm = route(TaskType.QUICK_BUG)
     results["bugs"] = bug_llm.invoke(
         f"Find bugs in this {language} code:\n```{code}```"
     ).content
+    
+    
     
 
     # Security — Mistral
